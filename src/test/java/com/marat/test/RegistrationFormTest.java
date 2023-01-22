@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrationFormTest extends TestBase {
 
@@ -32,36 +33,62 @@ public class RegistrationFormTest extends TestBase {
 
     @Test
     void fillFormTest() {
-        open(URL);
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
-        $("#userEmail").setValue(userEmail);
-        $(byText(gender)).click();
-        $("#userNumber").setValue(userNumber);
-        $("#dateOfBirthInput").click();
-        $(byClassName("react-datepicker__month-select")).click();
-        $(byValue("1")).click();
-        $(byClassName("react-datepicker__year-select")).click();
-        $(byValue("1987")).click();
-        $(byClassName("react-datepicker__day--010")).click();
-        $("#subjectsInput").setValue(userSubject).pressEnter();
-        $(byText(userHobbie4)).click();
-        $("#uploadPicture").uploadFromClasspath(filePath);
-        $("#currentAddress").setValue(userAddress);
-        $("#react-select-3-input").setValue(userHobbie1).pressEnter();
-        $("#react-select-4-input").setValue(userHobbie2).pressEnter();
-        $("#submit").pressEnter();
-        $("#example-modal-sizes-title-lg").shouldHave(text(formText));
-        $(byTagName("tbody")).shouldHave(text(firstName + " " + lastName))
-                .shouldHave(text(userEmail))
-                .shouldHave(text(gender))
-                .shouldHave(text(userNumber))
-                .shouldHave(text(birthDay + " " + birthMonth + "," + birthYear))
-                .shouldHave(text(userHobbie3))
-                .shouldHave(text(userHobbie4))
-                .shouldHave(text(userPhoto))
-                .shouldHave(text(userAddress))
-                .shouldHave(text(userHobbie1 + " " + userHobbie2));
-        $(byText("Close")).pressEnter();
+        step("Open reg. page", () -> {
+            open(URL);
+        });
+        step("Set user data", () -> {
+            $("#firstName").setValue(firstName);
+            $("#lastName").setValue(lastName);
+            $("#userEmail").setValue(userEmail);
+        });
+        step("Select user gender", () -> {
+            $(byText(gender)).click();
+        });
+        step("Set user phone number", () -> {
+            $("#userNumber").setValue(userNumber);
+        });
+        step("Select user birth date", () -> {
+            $("#dateOfBirthInput").click();
+            $(byClassName("react-datepicker__month-select")).click();
+            $(byValue("1")).click();
+            $(byClassName("react-datepicker__year-select")).click();
+            $(byValue("1987")).click();
+            $(byClassName("react-datepicker__day--010")).click();
+        });
+        step("Set user subject", () -> {
+            $("#subjectsInput").setValue(userSubject).pressEnter();
+        });
+        step("Select music hobby", () -> {
+            $(byText(userHobbie4)).click();
+        });
+        step("Upload user image", () -> {
+            $("#uploadPicture").uploadFromClasspath(filePath);
+        });
+        step("Set user address", () -> {
+            $("#currentAddress").setValue(userAddress);
+        });
+        step("Set other user hobbies", () -> {
+            $("#react-select-3-input").setValue(userHobbie1).pressEnter();
+            $("#react-select-4-input").setValue(userHobbie2).pressEnter();
+        });
+        step("Submit form", () -> {
+            $("#submit").pressEnter();
+        });
+        step("User data results checking", () -> {
+            $("#example-modal-sizes-title-lg").shouldHave(text(formText));
+            $(byTagName("tbody")).shouldHave(text(firstName + " " + lastName))
+                    .shouldHave(text(userEmail))
+                    .shouldHave(text(gender))
+                    .shouldHave(text(userNumber))
+                    .shouldHave(text(birthDay + " " + birthMonth + "," + birthYear))
+                    .shouldHave(text(userHobbie3))
+                    .shouldHave(text(userHobbie4))
+                    .shouldHave(text(userPhoto))
+                    .shouldHave(text(userAddress))
+                    .shouldHave(text(userHobbie1 + " " + userHobbie2));
+        });
+        step("Closing form", () -> {
+            $(byText("Close")).pressEnter();
+        });
     }
 }
