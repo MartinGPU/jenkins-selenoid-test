@@ -1,1 +1,1 @@
-# jenkins-selenoid-test
+Использование в тесте jenkins-selenoid
