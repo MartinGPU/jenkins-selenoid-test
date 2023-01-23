@@ -34,7 +34,7 @@ public class RegistrationFormTest extends TestBase {
     @Test
     void fillFormTest() {
         step("Open reg. page", () -> {
-            open(URL);
+            open(URL2);
         });
         step("Set user data", () -> {
             $("#firstName").setValue(firstName);
