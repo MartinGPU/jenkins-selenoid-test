@@ -24,7 +24,7 @@ public class OwnerTests {
     }
 
     @Test
-    void readUrl(){
+    void readUrl() {
         String url = urlconfig.url();
         String message2 = format("URL = %s", url);
         System.out.println(message2);
