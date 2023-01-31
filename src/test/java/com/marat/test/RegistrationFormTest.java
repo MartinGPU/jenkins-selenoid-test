@@ -33,6 +33,7 @@ public class RegistrationFormTest extends TestBase {
             formText = "Thanks for submitting the form";
 
     @Test
+    @Tag("smoke")
     void fillFormTest() {
         step("Open reg. page", () -> {
             open(URL2);
