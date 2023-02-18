@@ -1,1 +1,1 @@
-Использование в тесте jenkins-selenoid
+Использование в тесте allure_testOps/jira
