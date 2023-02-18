@@ -1,6 +1,7 @@
 package com.marat.test;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +35,7 @@ public class RegistrationFormTest extends TestBase {
 
     @Test
     @Tag("smoke")
+    @DisplayName("Auth")
     void fillFormTest() {
         step("Open reg. page", () -> {
             open(URL2);
