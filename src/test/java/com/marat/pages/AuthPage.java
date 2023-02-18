@@ -12,7 +12,7 @@ public class AuthPage {
             userItem = $$(".shortcut__item--wrapper").get(2),
             loginTextInput = $("[name = 'account']"),
             passwordTextInput = $("[name = 'password']"),
-            loginButton = $$(byTagName("a")).get(22),
+            loginButton = $("[href = '//ru.buy.mi.com/ru/site/login']"),
             submitButton = $("[type = 'submit']"),
             logoutText = $$(".view-account__item").get(3),
             productName = $("[aria-label = 'Смартфоны']"),
