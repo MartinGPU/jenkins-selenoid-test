@@ -1,6 +1,7 @@
 package com.marat.test;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,6 +18,7 @@ public class AuthorizationTest extends TestBase{
 
     @Test
     @Tag("smoke")
+    @AllureId("15003")
     @DisplayName("Successful login")
     void authTest() {
         step("Open home page", () -> {
