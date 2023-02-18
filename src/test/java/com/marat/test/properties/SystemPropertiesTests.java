@@ -11,7 +11,7 @@ public class SystemPropertiesTests {
         String browser = System.getProperty("browser", "yandex");
         String version = System.getProperty("version", "23");
         String bit = System.getProperty("bit", "64");
-        String browserSize = System.getProperty("browserSize", "1366x760");
+        String browserSize = System.getProperty("browserSize", "3840×2160");
 
         System.out.println(browser);
         System.out.println(version);
