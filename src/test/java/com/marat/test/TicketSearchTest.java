@@ -62,8 +62,9 @@ public class TicketSearchTest extends TestBase {
             sleep(6000);
         });
 
-        step("Checking search results");
-        $(departureResultContent).shouldHave(text(departureResults));
-        $(arrivalResultsContent).shouldHave(text(arrivalResults));
+        step("Checking search results", () -> {
+            $(departureResultContent).shouldHave(text(departureResults));
+            $(arrivalResultsContent).shouldHave(text(arrivalResults));
+        });
     }
 }
