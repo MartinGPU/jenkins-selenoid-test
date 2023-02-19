@@ -13,40 +13,39 @@ import static com.marat.test.TestData.loginInput;
 import static com.marat.test.TestData.passwordInput;
 import static io.qameta.allure.Allure.step;
 
-    @Feature("Authorization")
-public class AuthorizationTest extends TestBase{
+@Feature("Authorization")
+public class AuthorizationTest extends TestBase {
 
     @Test
     @Tag("smoke")
-    @AllureId("15003")
-    @DisplayName("Successful login")
-    void authTest() {
+    @DisplayName("Successful auth")
+    @AllureId("15024")
+    public void loginPage() {
+
         step("Open home page", () -> {
             open(URL2);
             sleep(3000);
         });
 
         step("Set login", () -> {
-            $(userItem).hover();
+            $(userItem).click();
             sleep(1000);
-            $(loginButton).click();
             $(loginTextInput).setValue(loginInput);
             sleep(1000);
         });
 
-        step("Set pass", () -> {
+        step("Set password", () -> {
             $(passwordTextInput).setValue(passwordInput);
             sleep(1000);
         });
 
-        step("Click login", () -> {
+        step("Click on login", () -> {
             $(submitButton).click();
-            sleep(1000);
+            sleep(3000);
         });
 
         step("Check successful auth", () -> {
-            $(userItem2).hover();
-            $(logoutText).shouldHave(Condition.text("Выйти из системы"));
+            $(userItem2).shouldHave(Condition.text("wwugoydwcyblc@eurokool.com"));
             sleep(1000);
         });
     }

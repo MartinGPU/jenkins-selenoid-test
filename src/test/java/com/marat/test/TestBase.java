@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
 
-    String URL2 = "https://www.mi.com/ru";
+    String URL2 = "https://www.tutu.ru/";
 
     @BeforeAll
     public static void beforeAll() {
